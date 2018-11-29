@@ -53,9 +53,12 @@ DROP TABLE IF EXISTS `invSheet`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `invSheet` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
+
+
   `userName` varchar(40) DEFAULT NULL,
   `businessName` varchar(40) DEFAULT NULL,
   `currentDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
