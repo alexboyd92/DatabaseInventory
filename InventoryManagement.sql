@@ -26,8 +26,9 @@ CREATE TABLE `invDetails` (
   `invID` int(11) NOT NULL,
   `ItemName` varchar(40) NOT NULL,
   `ManfName` varchar(40) NOT NULL,
-  `qunaity` int(11) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
   `par` int(11) DEFAULT NULL,
+  'price' double unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`ItemName`,`ManfName`),
   KEY `invID` (`invID`),
   CONSTRAINT `invDetails_ibfk_1` FOREIGN KEY (`invID`) REFERENCES `invSheet` (`ID`)
@@ -51,10 +52,10 @@ DROP TABLE IF EXISTS `invSheet`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `invSheet` (
-  `ID` int(11) NOT NULL,
-  `user_name` varchar(40) DEFAULT NULL,
-  `buissnes_name` varchar(40) DEFAULT NULL,
-  `dateCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `userName` varchar(40) DEFAULT NULL,
+  `businessName` varchar(40) DEFAULT NULL,
+  `currentDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
