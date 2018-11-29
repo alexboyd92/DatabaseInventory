@@ -1,11 +1,14 @@
 package invmang;
 
 public class Item {
-    String name;
-    int Quanity;
-    int Par;
-    double price;
+    
+    private int invID;
+    private String itemName;
+    private String manfName;
+    private int quantity;
+    private int par;
+    private double price;
 
-
+    
 }
 
