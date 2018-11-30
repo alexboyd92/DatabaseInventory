@@ -1,11 +1,13 @@
 package invmang;
 
-
 import java.sql.*;
+
   public class DatabaseConnection {
+    
       final static String dbUrl = "jdbc:mysql://localhost:3306/invMang?useSSL=false";
       final static String user = "root";
       final static String pass = "rootpasswordgiven";
+    
       public static void main(String args[]) {
           try {
               Connection mycon = DriverManager.getConnection(dbUrl, user, pass);
@@ -14,27 +16,32 @@ import java.sql.*;
           } catch (SQLException e1) {
               e1.printStackTrace();
           }
+          Menu session = new Menu();
+          session.options(mycon);
       }
+    
       public static void addSheet(Connection mycon) {
     	  
 
       }
+    
       public static void listSheets(Connection mycon) throws SQLException {
-    	  String username = null;
-    	  String busName = null;
+    	  String userName = null;
+    	  String businessName = null;
     	  ResultSet rs;
     	  PreparedStatement pstmt = mycon.prepareStatement("SELECT \n" + 
-    	  		"    id , dateCreated\n" + 
+    	  		"    id , currentDate\n" + 
     	  		"FROM\n" + 
     	  		"    invSheet\n" + 
-    	  		"where user_name= ? and buissnes_name=?");
-    	  pstmt.setString(1, username);
-    	  pstmt.setString(2, busName);
+    	  		"where userName= ? and businessNme=?");
+    	  pstmt.setString(1, userName);
+    	  pstmt.setString(2, businessName);
     	  rs =pstmt.executeQuery();
     	  
 
 
       }
+    
       public static void deleteSheet(Connection mycon) throws SQLException {
           int IDtoDelete = 1;
           PreparedStatement pstmt = mycon.prepareStatement("DELETE FROM invSheet \n" +
