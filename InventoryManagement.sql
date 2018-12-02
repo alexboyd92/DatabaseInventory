@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `employee`;
 CREATE TABLE `employee` (
   `empID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `userName` varchar(16) NOT NULL,
-  `password` varchar(16) NOT NULL,
+  `password` varchar(32) NOT NULL,
   `businessName` varchar(40) NOT NULL,
   `dept` varchar(40) NOT NULL,
   PRIMARY KEY (`empID`),
@@ -36,14 +36,6 @@ CREATE TABLE `employee` (
 --
 -- Dumping data for table `invDetails`
 --
-
-LOCK TABLES `employee` WRITE;
-/*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (NULL ,'jboarts', 'od)*(#2@h1F', 'Boarts Shorts', 'Shorts');
-INSERT INTO `employee` VALUES (NULL ,'aboyd', '#2@h1Fod)*(', 'Al Kitchen', 'Good FOOD');
-INSERT INTO `employee` VALUES (NULL ,'jbennet', '#2@h1Fod)*(', 'WMU', 'Professor');
-/*!40000 ALTER TABLE `employee` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `invSheet`
@@ -64,14 +56,6 @@ CREATE TABLE `invSheet` (
 --
 -- Dumping data for table `invSheet`
 --
-
-LOCK TABLES `invSheet` WRITE;
-/*!40000 ALTER TABLE `invSheet` DISABLE KEYS */;
-INSERT INTO `invSheet` VALUES (NULL,'description', NULL);
-INSERT INTO `invSheet` VALUES (NULL ,'description2', NULL);
-INSERT INTO `invSheet` VALUES (NULL ,'description3', NULL);
-/*!40000 ALTER TABLE `invSheet` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `invDetails`
@@ -95,14 +79,6 @@ CREATE TABLE `invDetails` (
 --
 -- Dumping data for table `invDetails`
 --
-
-LOCK TABLES `invDetails` WRITE;
-/*!40000 ALTER TABLE `invDetails` DISABLE KEYS */;
-INSERT INTO `invDetails` VALUES (1 ,'Fruit Loops', 'Kellogg', 'Kellogg', 100, 50, 3.00);
-INSERT INTO `invDetails` VALUES (2 ,'Corn Flakes', 'Kellogg', 'Kellogg', 10, 25, 2.56);
-INSERT INTO `invDetails` VALUES (3 ,'Chex', 'Kellogg', 'Kellogg', 15, 35, 2.54);
-/*!40000 ALTER TABLE `invDetails` ENABLE KEYS */;
-UNLOCK TABLES;
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
