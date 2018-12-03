@@ -26,6 +26,7 @@ CREATE TABLE `employee` (
   `empID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `userName` varchar(16) NOT NULL,
   `password` varchar(32) NOT NULL,
+  `salt` blob NOT NULL,
   `businessName` varchar(40) NOT NULL,
   `dept` varchar(40) NOT NULL,
   PRIMARY KEY (`empID`),
@@ -46,10 +47,12 @@ DROP TABLE IF EXISTS `invSheet`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `invSheet` (
   `invID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `businessName` varchar(40) NOT NULL,
   `description` varchar(100) NOT NULL, 
   `currentDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`invID`),
-  KEY `invID` (`invID`)
+  KEY `invID` (`invID`),
+  CONSTRAINT `invSheet_ibfk_1` FOREIGN KEY (`businessName`) REFERENCES `employee` (`businessName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
