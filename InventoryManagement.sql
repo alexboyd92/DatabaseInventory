@@ -51,8 +51,7 @@ CREATE TABLE `invSheet` (
   `description` varchar(100) NOT NULL, 
   `currentDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`invID`),
-  KEY `invID` (`invID`),
-  CONSTRAINT `invSheet_ibfk_1` FOREIGN KEY (`businessName`) REFERENCES `employee` (`businessName`)
+  KEY `invID` (`invID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
