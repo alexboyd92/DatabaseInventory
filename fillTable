@@ -1,4 +1,6 @@
+
  private void fillTable() {
+
     	final String url = "jdbc:mysql://localhost:3306/inv?useSSL=false&serverTimezone=EST";
 		final String username = "root";
 		final String password = "*AR,YAFoUP!*1";
@@ -20,7 +22,7 @@
 			PreparedStatement sheets = mycon.prepareStatement("SELECT * FROM employee E JOIN invSheet I ON E.businessName = I.businessName WHERE E.userName = ?");
 			sheets.setString(1, logUser);
 			ResultSet businessSheets = sheets.executeQuery();
-			table.setModel(DbUtils.resultSetToTableModel(businessSheets));
+
 			while (businessSheets.next()) {
 				String empID = businessSheets.getString("userName");
 				if (empID.equals(userName)) 
