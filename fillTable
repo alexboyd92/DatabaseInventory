@@ -1,0 +1,34 @@
+    private void fillTable() {
+    	final String url = "jdbc:mysql://localhost:3306/inv?useSSL=false&serverTimezone=EST";
+		final String username = "root";
+		final String password = "*AR,YAFoUP!*1";
+		
+		try {
+		    Class.forName("com.mysql.cj.jdbc.Driver");
+		}catch (ClassNotFoundException e) {
+		    throw new IllegalStateException("Cannot find the driver in the classpath!", e);
+		}
+		
+		try {
+			mycon = DriverManager.getConnection(url, username, password);
+		} catch (SQLException e) {
+			throw new IllegalStateException("Cannot connect the database!", e);
+		}
+		
+		try {
+			int correctInput = 0;
+			PreparedStatement sheets = mycon.prepareStatement("SELECT * FROM employee E JOIN invSheet I ON E.businessName = I.businessName WHERE E.userName = ?");
+			sheets.setString(1, logUser);
+			ResultSet businessSheets = sheets.executeQuery();
+			while (businessSheets.next()) {
+				String empID = businessSheets.getString("userName");
+				if (empID.equals(userName)) 
+					return true;
+				else
+					correctInput = 0;
+			}
+		} catch (SQLException e) {
+		    e.printStackTrace();
+		}
+    	
+    }
