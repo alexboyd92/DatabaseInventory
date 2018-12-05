@@ -174,7 +174,7 @@ public class SelectOption extends javax.swing.JFrame {
         show.setActiveUser(this.activeUser);
         show.setID(tempid);
         show.setDataCon(this.con);
-        System.out.print(tempid);
+        //System.out.print(tempid);
         show.setPrevious(this);
         this.setVisible(false);
         show.setVisible(true);
@@ -202,7 +202,7 @@ public class SelectOption extends javax.swing.JFrame {
 	private void deleteSheetActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_deleteSheetActionPerformed
 		int inv_ID;
 		inv_ID =  (int) table.getModel().getValueAt(table.getSelectedRow(),0);
-		System.out.println(inv_ID);
+		//System.out.println(inv_ID);
 		try {
 			PreparedStatement stat2;
 			stat2 = mycon.prepareStatement("delete from inv.invdetails where invID = ?");
