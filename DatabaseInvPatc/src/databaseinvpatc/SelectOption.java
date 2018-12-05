@@ -287,18 +287,43 @@ public class SelectOption extends javax.swing.JFrame {
                         table.removeColumn(table.getColumnModel().getColumn(0));
                 
                 table.removeColumn(table.getColumnModel().getColumn(0));
-                this.repaint();
-                this.revalidate();
+                
                 
                         
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+                
 
 	}
 
     void setcompany(String compName) {
         this.compName=compName;
+    }
+
+    void addNewRow(int InvID) {
+     mycon = this.con.getConnect();
+
+		try {
+                    ResultSet businessSheets;
+                    PreparedStatement sheets = mycon.prepareStatement("select * from inv.invsheet where invID=?;");
+			sheets.setInt(1, InvID);
+			businessSheets = sheets.executeQuery();
+			DefaultTableModel model = (DefaultTableModel) table.getModel();
+
+			while (businessSheets.next()) {
+				model.addRow(new Object[] { businessSheets.getInt(1), businessSheets.getString(2),
+						businessSheets.getString(3), businessSheets.getDate(4) });
+
+			}
+                        table.removeColumn(table.getColumnModel().getColumn(0));
+                        model.fireTableDataChanged();
+                
+                table.removeColumn(table.getColumnModel().getColumn(0));
+                
+                } catch (SQLException e) {
+			e.printStackTrace();
+		}
     }
 
     

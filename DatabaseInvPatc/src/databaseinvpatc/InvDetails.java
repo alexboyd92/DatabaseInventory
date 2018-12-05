@@ -20,30 +20,36 @@ import javax.swing.table.DefaultTableModel;
  * @author alexb
  */
 public class InvDetails extends javax.swing.JFrame {
-SelectOption options;
+
+    SelectOption options;
     private DataConnect connect;
     private Connection mycon;
     private Savepoint savePoint1;
     private String compName;
     private SelectOption selectOption;
-    private int toadd=0;
+    private int toadd = 0;
     private String activeUser;
+
     /**
      * Creates new form InvDetails
      */
     public InvDetails() {
         initComponents();
-        
-        
+       itemName.setDocument(new JtextLimit(39));
+       Manfname.setDocument(new JtextLimit(39));
+       Supp.setDocument(new JtextLimit(39));
+       
+
     }
 
     InvDetails(SelectOption aThis) {
-         initComponents();
-         this.setLocationRelativeTo(null);
-         this.options=aThis;if(toadd==0){
-            this.confirm.setEnabled(false);}
+        initComponents();
+        this.setLocationRelativeTo(null);
+        this.options = aThis;
+        if (toadd == 0) {
+            this.confirm.setEnabled(false);
+        }
 
-         
     }
 
     /**
@@ -73,11 +79,11 @@ SelectOption options;
         jLabel5 = new javax.swing.JLabel();
         price = new javax.swing.JFormattedTextField();
         Price = new javax.swing.JLabel();
-        Discription = new javax.swing.JLabel();
-        description = new javax.swing.JTextField();
         addItem = new javax.swing.JButton();
         deleteItem = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
+        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -161,11 +167,6 @@ SelectOption options;
         Price.setText("Price");
         Price.setToolTipText("Price of the item by unit");
 
-        Discription.setText("Description");
-        Discription.setToolTipText("A breif description or any notes about the Sheet");
-
-        description.setToolTipText("A breif description or any notes about the Sheet");
-
         addItem.setText("Add item");
         addItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,7 +196,10 @@ SelectOption options;
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(itemName)
                     .addComponent(Manfname)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(Supp)
                     .addComponent(jLabel3)
                     .addComponent(quantity)
@@ -203,9 +207,11 @@ SelectOption options;
                     .addComponent(par)
                     .addComponent(jLabel5)
                     .addComponent(price)
-                    .addComponent(Price)
-                    .addComponent(Discription)
-                    .addComponent(description)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(Price)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -220,31 +226,31 @@ SelectOption options;
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(itemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
                 .addComponent(Manfname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Supp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(12, 12, 12)
                 .addComponent(quantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(3, 3, 3)
                 .addComponent(par, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(filler1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Price, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Price)
-                .addGap(5, 5, 5)
                 .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Discription)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(description, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addItem)
                     .addComponent(deleteItem))
@@ -287,106 +293,66 @@ SelectOption options;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-public void windowClosing(WindowEvent e){
-      System.out.println("jdialog window closed event received");
-     options.setVisible(true);
-       this.dispose();
-}
+public void windowClosing(WindowEvent e) {
+        System.out.println("jdialog window closed event received");
+        options.setVisible(true);
+        this.dispose();
+    }
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
-       options.setVisible(true);
-       this.dispose();
+        options.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_cancelActionPerformed
 
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
-        if(description.getText().isEmpty())
-            description.setText("Null");
-        toadd = jTable1.getRowCount();
-          if(toadd==0){
-              this.selectOption.setVisible(true);
-        this.dispose();
-        return;
-          }
-         mycon= this.connect.getConnect();
-    try {
-         savePoint1 = mycon.setSavepoint("Savepoint1");
-    } catch (SQLException ex) {
-        
-    }
-    try {
-        PreparedStatement pstmt = mycon.prepareStatement("insert into invsheet(invID,businessName,description,currentDate)values(null,?,?, now())") ;
-        pstmt.setString(2,description.getText());
-        pstmt.setString(1,this.compName);
-         pstmt.executeUpdate();
-        
-        pstmt=mycon.prepareStatement("SELECT LAST_INSERT_ID() from invsheet");
-        
-       
-        ResultSet rs = pstmt.executeQuery();
-        if(rs.next()){
-        int ID = rs.getInt(1);
-        
-     
-        for(int i=0;i<this.toadd;i++){
-            pstmt=mycon.prepareStatement("insert into invdetails(invID,ItemName,ManfName,supplier,quantity,par,price)\n" +
-    "values(?,?,?,?,?,?,?)");
-            pstmt.setInt(1, ID);
-             System.out.println(this.jTable1.getValueAt(i,0));
-             pstmt.setString(2, (String) this.jTable1.getValueAt(i,0));
-             pstmt.setString(3, (String) this.jTable1.getValueAt(i,1));
-             pstmt.setString(4, (String) this.jTable1.getValueAt(i,2));
-             pstmt.setInt(5, (int) this.jTable1.getValueAt(i,3));
-              pstmt.setInt(6, (int) this.jTable1.getValueAt(i,4));
-              pstmt.setFloat(7, (float) this.jTable1.getValueAt(i, 5));
-             pstmt.executeUpdate();
-             
-             
-        
-        
-        }}
-        
-        
-        mycon.commit();
-       
-        
-       
-           
-    } catch (SQLException ex) {
-              try {
-                  mycon.rollback(savePoint1);
-              } catch (SQLException ex1) {
-                  Logger.getLogger(InvDetails.class.getName()).log(Level.SEVERE, null, ex1);
-              }
-        Logger.getLogger(InvDetails.class.getName()).log(Level.SEVERE, null, ex);
-    }
-     this.selectOption.setVisible(true);
-       
-        
-       options.setDataConect(this.connect);
-       options.setVisible(true);
-       options.setActiveUser(this.activeUser);
-       options.fillTable();
-       
-         this.dispose();
+      Confirm conf = new Confirm();
+   conf.SetActiveUser(this.activeUser);
+   conf.setConnect(this.connect);
+   conf.setTable(this.jTable1);
+   conf.setSelectopt(this.options);
+   conf.setComp(this.compName);
+   conf.setVisible(true);
+   conf.SetPrev(this);
+  this.setVisible(false);
+
     }//GEN-LAST:event_confirmActionPerformed
 
-    private void addItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addItemActionPerformed
-      if(itemName.getText().isEmpty()|quantity.getText().isEmpty()){
-          return;
-      }
-  
-      DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-      model.addRow(new Object[]{ String.valueOf(itemName.getText()), String.valueOf(Manfname.getText()),String.valueOf(Supp.getText()),
-      Integer.parseInt(quantity.getText()),Integer.parseInt(par.getText()),Float.parseFloat(price.getText())});
-     this.confirm.setEnabled(true);
-    
-    }//GEN-LAST:event_addItemActionPerformed
-
     private void deleteItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteItemActionPerformed
-        if(!jTable1.getSelectionModel().isSelectionEmpty())
-        {DefaultTableModel model = (DefaultTableModel) this.jTable1.getModel();
-	 model.removeRow(jTable1.getSelectedRow());}
-         
+        if (!jTable1.getSelectionModel().isSelectionEmpty()) {
+            DefaultTableModel model = (DefaultTableModel) this.jTable1.getModel();
+            model.removeRow(jTable1.getSelectedRow());
+        }
     }//GEN-LAST:event_deleteItemActionPerformed
+
+    private void addItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addItemActionPerformed
+        String name;
+        String manfName = " ";
+        String supp = " ";
+        int quant;
+        int tempPar = 0;
+        float tempPrice =0;
+        if (itemName.getText().isEmpty() | quantity.getText().isEmpty()) {
+            return;
+        }
+        name = itemName.getText();
+        if (!Manfname.getText().isEmpty()) {
+            manfName = String.valueOf(Manfname.getText());
+        }
+
+        if (!Supp.getText().isEmpty()) {
+            supp = Supp.getText();
+        }
+        quant = Integer.parseInt(quantity.getText());
+        if (!par.getText().isEmpty()) {
+            tempPar = Integer.parseInt(par.getText());
+        }
+        if (!price.getText().isEmpty()) {
+            tempPrice = Float.parseFloat(price.getText());
+        }
+
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.addRow(new Object[]{name, manfName, supp, quant, tempPar, tempPrice});
+        this.confirm.setEnabled(true);
+    }//GEN-LAST:event_addItemActionPerformed
 
     private void priceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceActionPerformed
         // TODO add your handling code here:
@@ -399,10 +365,8 @@ public void windowClosing(WindowEvent e){
     /**
      * @param args the command line arguments
      */
-  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Discription;
     private javax.swing.JTextField Manfname;
     private javax.swing.JLabel Price;
     private javax.swing.JTextField Supp;
@@ -410,7 +374,8 @@ public void windowClosing(WindowEvent e){
     private javax.swing.JButton cancel;
     private javax.swing.JButton confirm;
     private javax.swing.JButton deleteItem;
-    private javax.swing.JTextField description;
+    private javax.swing.Box.Filler filler1;
+    private javax.swing.Box.Filler filler2;
     private javax.swing.JTextField itemName;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -428,19 +393,19 @@ public void windowClosing(WindowEvent e){
     // End of variables declaration//GEN-END:variables
 
     void SetDatacon(DataConnect con) {
-        this.connect= con;
+        this.connect = con;
     }
 
     void setCompName(String compName) {
-        this.compName=compName;
+        this.compName = compName;
     }
 
     void setSelectOption(SelectOption aThis) {
-      this.selectOption=aThis;
+        this.selectOption = aThis;
     }
 
     void setActiveUser(String activeUser) {
-        this.activeUser= activeUser;
+        this.activeUser = activeUser;
     }
 
 }

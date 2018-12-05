@@ -209,7 +209,12 @@ public class Register extends javax.swing.JFrame {
     	 userName = username.getText();
          companyName = company.getText();
          dept = department.getText();
-         if(password2.getText().compareTo(password.getText())!=0) {
+         if(password.getText().length()<5){
+             error.setText("Password must at least 5 characters long");
+             password2.setText(null);
+             password.setText(null);
+         }
+         else if(password2.getText().compareTo(password.getText())!=0) {
       	   password2.setText(null);
              password.setText(null);
              error.setText("Passwords do not match");

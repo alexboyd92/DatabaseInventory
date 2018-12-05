@@ -27,6 +27,7 @@ public class ShowTable extends javax.swing.JFrame {
      */
     public ShowTable() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
