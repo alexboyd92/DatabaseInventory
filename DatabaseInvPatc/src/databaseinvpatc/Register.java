@@ -23,6 +23,7 @@ public class Register extends javax.swing.JFrame {
     Login log;
 	DataConnect con;
 	Connection mycon;
+    private Login login;
   		
     /**
      * Creates new form Register
@@ -222,6 +223,7 @@ public class Register extends javax.swing.JFrame {
       	   error.setText("Userername has already been taken");
          else {
       	   createUser(userName, password.getText(), companyName, dept);
+             log.setVisible(true);
          	   this.dispose();
          }
          
@@ -319,7 +321,7 @@ public class Register extends javax.swing.JFrame {
 			newEmp.setString(5, dept);
 			newEmp.executeUpdate();
 			mycon.commit();
-	        System.out.printf("User created with username %s", userName);
+	      //  System.out.printf("User created with username %s", userName);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		    if (mycon != null) {
@@ -339,5 +341,9 @@ public class Register extends javax.swing.JFrame {
 		this.con=connect;
 		
 	}
+
+    void setPrev(Login aThis) {
+       login = aThis;
+    }
     
 }

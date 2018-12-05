@@ -141,7 +141,7 @@ public class Confirm extends javax.swing.JFrame {
                     pstmt = mycon.prepareStatement("insert into invdetails(invID,ItemName,ManfName,supplier,quantity,par,price)\n"
                             + "values(?,?,?,?,?,?,?)");
                     pstmt.setInt(1, ID);
-                    System.out.println(this.jTable1.getValueAt(i, 0));
+                 //   System.out.println(this.jTable1.getValueAt(i, 0));
                     pstmt.setString(2, (String) this.jTable1.getValueAt(i, 0));
                     pstmt.setString(3, (String) this.jTable1.getValueAt(i, 1));
                     pstmt.setString(4, (String) this.jTable1.getValueAt(i, 2));

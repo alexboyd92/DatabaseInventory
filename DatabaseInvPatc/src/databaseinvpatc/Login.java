@@ -238,6 +238,7 @@ public class Login extends javax.swing.JFrame {
          reg.setDataConnect(this.connect);
         reg.setVisible(true);
            this.setVisible(false);
+           reg.setPrev(this);
     }//GEN-LAST:event_CreateAccountActionPerformed
 
     /**
