@@ -1,0 +1,12 @@
+int inv_ID; 
+			inv_ID = table.getValueAt(table.getSelectedRow(),1); 		 
+		    PreparedStatement stat2 = con.PrepareStatement("delete from invDetails where invID = ?");
+		    PreparedStatement stat3 = con.PrepareStatement("delete from invSheet where invID = ?");
+		    stat2.setInt(1, inv_ID);
+		    stat3.setInt(1, inv_ID);
+		     
+		     
+		     int i = stat2.executeUpdate();
+		     System.out.println(i + "record deleted");
+		     i = stat3.executeUpdate();
+		     
