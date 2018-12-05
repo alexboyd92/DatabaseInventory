@@ -195,6 +195,12 @@ public class Login extends javax.swing.JFrame {
     private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
        String username = Username.getText();
        String password =  Password.getText();
+       if(username.isEmpty()){
+       }
+       if(password.isEmpty()){
+           
+       }
+    else{
      try {
          if(validatePassword()){
              
@@ -211,11 +217,11 @@ public class Login extends javax.swing.JFrame {
              LoginError.setVisible(true);
              
          }
-     } catch (NoSuchAlgorithmException | NoSuchProviderException ex) {
-         Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+     } catch (Exception ex) {
+       this.LoginError.setVisible(true);
      }
            
-       
+}
     }//GEN-LAST:event_LoginActionPerformed
 
     private void PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordActionPerformed
